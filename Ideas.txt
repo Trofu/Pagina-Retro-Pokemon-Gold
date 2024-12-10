@@ -1,0 +1,11 @@
+1. Crear pokemon 
+2. Coger assets
+3. Sacar los assets correspondientes
+4. Crear intro con ho-ho volando 
+5. Checkbox que sea invisible pero sea la imagen de iniciar
+6. Crear panel de batalla (Botones o video)
+7. Botones: Grid con Checkbox o radio
+8. Video que realice la batalla solo
+--  OPCIONAL  --
+10. 2 o 3 Pokemons en reserva
+9. Cambiar de pokemon y sus ataques 
