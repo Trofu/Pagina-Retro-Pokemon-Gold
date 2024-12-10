@@ -1,6 +1,7 @@
 const btnA = document.getElementById('btnA');
 const videoElement = document.getElementById('video');
 const audioElement = document.getElementById('audio');
+const audioElement2 = document.getElementById('audioTitulo');
 const container = document.querySelector('.gameStart'); // El contenedor del video
 let starInterval;
 
@@ -43,12 +44,15 @@ function handleBtnAClick() {
     // Si el video está reproduciéndose
     else if (videoElement.paused == false & window.getComputedStyle(videoElement).display != 'none') {
         videoElement.pause();
+        audioElement.pause();
         videoElement.style.display = 'none';
         startStarGeneration();
+        audioElement2.play();
         console.log('Se generan estrellas por video parado');
     }
     // Caso 3: Si el video está oculto (display: none), ocultar el contenedor
     else if (window.getComputedStyle(videoElement).display == 'none') {
+        audioElement2.pause();
         container.style.display = 'none';  // Ocultar el contenedor de estrellas
         console.log('Video desaparecido y desaparece el gameStart');
     }
@@ -61,5 +65,6 @@ videoElement.addEventListener('ended', function() {
     // El video ha terminado
     videoElement.style.display = 'none';  // Ocultar el video
     startStarGeneration();  // Iniciar la generación de estrellas
+    audioElement2.play();
     console.log('Se generan estrellas por video terminado');
 });
