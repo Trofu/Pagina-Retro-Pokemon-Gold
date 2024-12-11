@@ -12,7 +12,7 @@
     </head>
     <body>
         <div class="container-fluid vh-100">
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center align-items-center h-100">
                 <div class="gameboy">
                     <div class="pantalla">
                         <div class="gameStart">
@@ -33,14 +33,22 @@
                                 Tu navegador no soporta el elemento de audio.
                             </audio>
                         </div>
-
+                        <div class="gameBattle">
+                            <div class="pokDo">
+                                <div class="do1"></div>
+                                <div class="do2"></div>
+                                <div class="do3"></div>
+                                <div class="do4"></div>
+                                <div class="attack"></div>
+                            </div>
+                        </div>
                     </div>
                     <div class="botons">
-                        <input type="button" value="←" class="btn1">
-                        <input type="button" value="→" class="btn2">
-                        <input type="button" value="↑" class="btn3">
-                        <input type="button" value="↓" class="btn4">
-                        <input type="button" value="B" class="btn5">
+                        <input type="button" value="←" class="btn1" id="btnl">
+                        <input type="button" value="→" class="btn2" id="btnr">
+                        <input type="button" value="↑" class="btn3" id="btnu">
+                        <input type="button" value="↓" class="btn4" id="btnd">
+                        <input type="button" value="B" class="btn5" id="btnB">
                         <input type="button" value="A" class="btn6" id="btnA">
                     </div>
                 </div>
