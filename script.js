@@ -25,6 +25,7 @@ const useattack1 = document.querySelector('.useAttack1');
 const useattack2 = document.querySelector('.useAttack2');
 const useattack3 = document.querySelector('.useAttack3');
 const useattack4 = document.querySelector('.useAttack4');
+const typeAttack = document.querySelector('.AttackFight');
 
 let starInterval;
 let intro = true;
@@ -269,17 +270,19 @@ function handleBtnAClick() {
                 }else if(checkBlock(attack3)){
                     useattack3.style.display = 'block';
                     attack3.style.display = 'none';
+                    typeAttack.style.display = 'block';
                     attack=false;
                 }else if(checkBlock(attack4)){
                     useattack4.style.display = 'block';
                     attack4.style.display = 'none';
                     attack=false;
                 }
-            }else{
+            }else if([useattack1,useattack2,useattack3,useattack4].some(checkBlock)){
                 useattack1.style.display = 'none';
                 useattack2.style.display = 'none';
                 useattack3.style.display = 'none';
                 useattack4.style.display = 'none';
+                typeAttack.style.display = 'none';
                 do1.style.display = 'block';
             }
         }

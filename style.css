@@ -219,11 +219,8 @@
 .pokDo div{
     display: none;
     background-repeat: no-repeat;
-    background-position: bottom right;
 }
 .pokDo > [class^="do"]{
-    display: none;
-    background-repeat: no-repeat;
     background-position: bottom right;
     background-size: 60%;
 }
@@ -242,6 +239,7 @@
 /** Accion de Atacar **/
 [class^="attack"]{
     background-size: contain;
+    background-position: bottom right;
 }
 .attack1{
     background-image: url(assets/batalla/attack_1.png);
@@ -255,8 +253,10 @@
 .attack4{
     background-image: url(assets/batalla/attack_4.png);
 }
+/** Texto uso de Ataque **/
 [class^="useAttack"]{
     background-size: contain;
+    background-position: bottom right;
 }
 .useAttack1{
     background-image: url(assets/batalla/Attack_use_1.png);
@@ -269,4 +269,27 @@
 }
 .useAttack4{
     background-image: url(assets/batalla/Attack_use_4.png);
+}
+/** Tipo de ataque realizado **/
+.AttackNormal{
+    background-image: url();
+}
+.AttackFight{
+    background-image: url(assets/batalla/typeAttackFight.png);
+    background-position: top right;
+    background-size: 30%;
+    position: relative;
+    top: -95%;
+    right: 25px;
+    opacity: 0;
+    animation: attackFight 1s linear infinite;
+}
+@keyframes attackFight {
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+    
 }
