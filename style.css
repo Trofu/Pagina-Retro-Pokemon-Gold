@@ -216,6 +216,11 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+.pokDo div{
+    display: none;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+}
 .pokDo > [class^="do"]{
     display: none;
     background-repeat: no-repeat;
@@ -235,10 +240,33 @@
     background-image: url(assets/batalla/WhatToDo_4.png);
 }
 /** Accion de Atacar **/
-.attack{
-    display: none;
-    background-repeat: no-repeat;
-    background-position: bottom right;
+[class^="attack"]{
     background-size: contain;
-    background-image: url(assets/batalla/attack.png);
+}
+.attack1{
+    background-image: url(assets/batalla/attack_1.png);
+}
+.attack2{
+    background-image: url(assets/batalla/attack_2.png);
+}
+.attack3{
+    background-image: url(assets/batalla/attack_3.png);
+}
+.attack4{
+    background-image: url(assets/batalla/attack_4.png);
+}
+[class^="useAttack"]{
+    background-size: contain;
+}
+.useAttack1{
+    background-image: url(assets/batalla/Attack_use_1.png);
+}
+.useAttack2{
+    background-image: url(assets/batalla/Attack_use_2.png);
+}
+.useAttack3{
+    background-image: url(assets/batalla/Attack_use_3.png);
+}
+.useAttack4{
+    background-image: url(assets/batalla/Attack_use_4.png);
 }

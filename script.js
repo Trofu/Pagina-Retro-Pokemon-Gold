@@ -17,12 +17,20 @@ const do1 = document.querySelector('.do1');
 const do2 = document.querySelector('.do2');
 const do3 = document.querySelector('.do3');
 const do4 = document.querySelector('.do4');
-const attack = document.querySelector('.attack');
+const attack1 = document.querySelector('.attack1');
+const attack2 = document.querySelector('.attack2');
+const attack3 = document.querySelector('.attack3');
+const attack4 = document.querySelector('.attack4');
+const useattack1 = document.querySelector('.useAttack1');
+const useattack2 = document.querySelector('.useAttack2');
+const useattack3 = document.querySelector('.useAttack3');
+const useattack4 = document.querySelector('.useAttack4');
 
 let starInterval;
 let intro = true;
 let battle = false;
 let action = false;
+let attack = false;
 
 // Función para iniciar la generación de estrellas
 function getCenter(element) {
@@ -60,72 +68,165 @@ btnl.addEventListener('click', () => doingPokemon('izq'));
 btnu.addEventListener('click', () => doingPokemon('up'));
 btnd.addEventListener('click', () => doingPokemon('down'));
 
+function checkBlock(item){
+    return window.getComputedStyle(item).display == 'block';
+}
+function checkNone(item){
+    return window.getComputedStyle(item).display == 'none';
+}
 
 function doingPokemon(texto) {
     if (texto == 'der') {
-        if (window.getComputedStyle(do1).display == 'block') {
+        if (checkBlock(do1)) {
             do1.style.display = 'none';
             do2.style.display = 'block';
             do3.style.display = 'none';
             do4.style.display = 'none';
-        } else if (window.getComputedStyle(do3).display == 'block') {
-            do1.style.display = 'none';
-            do2.style.display = 'none';
-            do3.style.display = 'none';
-            do4.style.display = 'block';
-        }
-    } else if (texto == 'izq') {
-        if (window.getComputedStyle(do2).display == 'block') {
+        } else if (checkBlock(do2)) {
             do1.style.display = 'block';
             do2.style.display = 'none';
             do3.style.display = 'none';
             do4.style.display = 'none';
-        } else if (window.getComputedStyle(do4).display == 'block') {
+        } else if (checkBlock(do3)) {
+            do1.style.display = 'none';
+            do2.style.display = 'none';
+            do3.style.display = 'none';
+            do4.style.display = 'block';
+        } else if (checkBlock(do4)) {
+            do1.style.display = 'none';
+            do2.style.display = 'none';
+            do3.style.display = 'block';
+            do4.style.display = 'none';
+        }
+    } else if (texto == 'izq') {
+        if (checkBlock(do1)) {
+            do1.style.display = 'none';
+            do2.style.display = 'block';
+            do3.style.display = 'none';
+            do4.style.display = 'none';
+        } else if (checkBlock(do2)) {
+            do1.style.display = 'block';
+            do2.style.display = 'none';
+            do3.style.display = 'none';
+            do4.style.display = 'none';
+        } else if (checkBlock(do3)) {
+            do1.style.display = 'none';
+            do2.style.display = 'none';
+            do3.style.display = 'none';
+            do4.style.display = 'block';
+        } else if (checkBlock(do4)) {
             do1.style.display = 'none';
             do2.style.display = 'none';
             do3.style.display = 'block';
             do4.style.display = 'none';
         }
     } else if (texto == 'up') {
-        if (window.getComputedStyle(do3).display == 'block') {
-            do1.style.display = 'block';
-            do2.style.display = 'none';
-            do3.style.display = 'none';
-            do4.style.display = 'none';
-        } else if (window.getComputedStyle(do4).display == 'block') {
-            do1.style.display = 'none';
-            do2.style.display = 'block';
-            do3.style.display = 'none';
-            do4.style.display = 'none';
+        if (attack) {
+            if (checkBlock(attack1)) {
+                attack1.style.display = 'none';
+                attack2.style.display = 'none';
+                attack3.style.display = 'none';
+                attack4.style.display = 'block';
+            } else if (checkBlock(attack2)) {
+                attack1.style.display = 'block';
+                attack2.style.display = 'none';
+                attack3.style.display = 'none';
+                attack4.style.display = 'none';
+            } else if (checkBlock(attack3)) {
+                attack1.style.display = 'none';
+                attack2.style.display = 'block';
+                attack3.style.display = 'none';
+                attack4.style.display = 'none';
+            } else if (checkBlock(attack4)) {
+                attack1.style.display = 'none';
+                attack2.style.display = 'none';
+                attack3.style.display = 'block';
+                attack4.style.display = 'none';
+            }
+        } else {
+            if (checkBlock(do1)) {
+                do1.style.display = 'none';
+                do2.style.display = 'none';
+                do3.style.display = 'block';
+                do4.style.display = 'none';
+            } else if (checkBlock(do2)) {
+                do1.style.display = 'none';
+                do2.style.display = 'none';
+                do3.style.display = 'none';
+                do4.style.display = 'block';
+            } else if (checkBlock(do3)) {
+                do1.style.display = 'block';
+                do2.style.display = 'none';
+                do3.style.display = 'none';
+                do4.style.display = 'none';
+            } else if (checkBlock(do4)) {
+                do1.style.display = 'none';
+                do2.style.display = 'block';
+                do3.style.display = 'none';
+                do4.style.display = 'none';
+            }
         }
     } else if (texto == 'down') {
-        if (window.getComputedStyle(do1).display == 'block') {
-            do1.style.display = 'none';
-            do2.style.display = 'none';
-            do3.style.display = 'block';
-            do4.style.display = 'none';
-        } else if (window.getComputedStyle(do2).display == 'block') {
-            do1.style.display = 'none';
-            do2.style.display = 'none';
-            do3.style.display = 'none';
-            do4.style.display = 'block';
+        if (attack) {
+            if (checkBlock(attack1)) {
+                attack1.style.display = 'none';
+                attack2.style.display = 'block';
+                attack3.style.display = 'none';
+                attack4.style.display = 'none';
+            } else if (checkBlock(attack2)) {
+                attack1.style.display = 'none';
+                attack2.style.display = 'none';
+                attack3.style.display = 'block';
+                attack4.style.display = 'none';
+            } else if (checkBlock(attack3)) {
+                attack1.style.display = 'none';
+                attack2.style.display = 'none';
+                attack3.style.display = 'none';
+                attack4.style.display = 'block';
+            } else if (checkBlock(attack4)) {
+                attack1.style.display = 'block';
+                attack2.style.display = 'none';
+                attack3.style.display = 'none';
+                attack4.style.display = 'none';
+            }
+        } else {
+            if (checkBlock(do1)) {
+                do1.style.display = 'none';
+                do2.style.display = 'none';
+                do3.style.display = 'block';
+                do4.style.display = 'none';
+            } else if (checkBlock(do2)) {
+                do1.style.display = 'none';
+                do2.style.display = 'none';
+                do3.style.display = 'none';
+                do4.style.display = 'block';
+            } else if (checkBlock(do3)) {
+                do1.style.display = 'block';
+                do2.style.display = 'none';
+                do3.style.display = 'none';
+                do4.style.display = 'none';
+            } else if (checkBlock(do4)) {
+                do1.style.display = 'none';
+                do2.style.display = 'block';
+                do3.style.display = 'none';
+                do4.style.display = 'none';
+            }
         }
     }
 }
 
 
-
 // Función que maneja el clic del botón "A"
 function handleBtnAClick() {
-    if(intro){
+    if (intro) {
         // Si el video está pausado
-        if (videoElement.paused & window.getComputedStyle(videoElement).display != 'none') {
+        if (videoElement.paused && !checkNone(videoElement)) {
             videoElement.play();
             audioElement.play();
             console.log('Se inicia el video por que se para por el navegador');
-        } 
+        }
         // Si el video está reproduciéndose
-        else if (videoElement.paused == false & window.getComputedStyle(videoElement).display != 'none') {
+        else if (!videoElement.paused && !checkNone(videoElement)) {
             videoElement.pause();
             audioElement.pause();
             videoElement.style.display = 'none';
@@ -134,7 +235,7 @@ function handleBtnAClick() {
             console.log('Se generan estrellas por video parado');
         }
         // Caso 3: Si el video está oculto (display: none), ocultar el contenedor
-        else if (window.getComputedStyle(videoElement).display == 'none') {
+        else if (checkNone(videoElement)) {
             audioElement2.pause();
             introCont.style.display = 'none';  // Ocultar el contenedor de estrellas
             console.log('Video desaparecido y desaparece el gameStart');
@@ -142,35 +243,64 @@ function handleBtnAClick() {
             intro = false;
             battle = true;
         }
-    }else if (battle){
-        if(window.getComputedStyle(battleCont).display == 'none'){
+    } else if (battle) {
+        if (checkNone(battleCont)) {
             battleCont.style.display = 'block';
             console.log("Se muestra el inicio de la batalla");
-        }else if(window.getComputedStyle(battleCont).display == 'block' && !action){
+        } else if (checkBlock(battleCont) && !action) {
             pokDo.style.display = 'block';
             do1.style.display = 'block';
             console.log("Se empieza a ver que tienen que hacer los pokemons");
             action = true;
-        }else if(action){
-            if(window.getComputedStyle(do1).display == 'block'){
+        } else if (action) {
+            if (checkBlock(do1)) {
                 do1.style.display = 'none';
-                attack.style.display = 'block';
+                attack1.style.display = 'block';
+                attack=true;
+            }else if(attack){
+                if(checkBlock(attack1)){
+                    useattack1.style.display = 'block';
+                    attack1.style.display = 'none';
+                    attack=false;
+                }else if(checkBlock(attack2)){
+                    useattack2.style.display = 'block';
+                    attack2.style.display = 'none';
+                    attack=false;
+                }else if(checkBlock(attack3)){
+                    useattack3.style.display = 'block';
+                    attack3.style.display = 'none';
+                    attack=false;
+                }else if(checkBlock(attack4)){
+                    useattack4.style.display = 'block';
+                    attack4.style.display = 'none';
+                    attack=false;
+                }
+            }else{
+                useattack1.style.display = 'none';
+                useattack2.style.display = 'none';
+                useattack3.style.display = 'none';
+                useattack4.style.display = 'none';
+                do1.style.display = 'block';
             }
         }
     }
 }
 
 function handleBtnBClick() {
-    if(window.getComputedStyle(attack).display == 'block'){
-        attack.style.display = 'none';
+    if (checkBlock(attack1) || checkBlock(attack2) || checkBlock(attack3) || checkBlock(attack4)) {
+        attack1.style.display = 'none';
+        attack2.style.display = 'none';
+        attack3.style.display = 'none';
+        attack4.style.display = 'none';
         do1.style.display = 'block';
+        attack=false;
     }
 }
 
-videoElement.addEventListener('ended', function() {
+videoElement.addEventListener('ended', function () {
     // El video ha terminado
-    videoElement.style.display = 'none';  
-    startStarGeneration();  
+    videoElement.style.display = 'none';
+    startStarGeneration();
     audioElement2.play();
     console.log('Se generan estrellas por video terminado');
 });
