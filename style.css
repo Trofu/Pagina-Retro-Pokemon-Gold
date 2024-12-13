@@ -1,3 +1,53 @@
+/** Container-Fluid **/
+.container-fluid{
+    background-image: url(img/papel-pintado-o-fotomural-catalogo-de-pokemon-fondo-infantil-juvenil.jpg);
+    filter: brightness(90%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.modes{
+    position: absolute;
+    bottom: 1%;
+    left: 1%;
+}
+#white{
+    width: 50px;
+    height: 50px;
+}
+/*****/
+.mycheckbox input:checked ~ span::after{
+    background: rgb(12, 167, 12);
+    transform: scale(0.85) translate(35px);
+}
+.mycheckbox input {
+    display: none;
+}
+.mycheckbox span {
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    border-radius: 30px;
+    background: rgb(187, 186, 186);
+    cursor: pointer;
+    box-shadow: inset 0px 0px 2px rgb(15, 15, 15);
+    position: relative;
+}
+.mycheckbox span::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    transform: scale(0.85);
+    border-radius: 30px;
+    background: rgb(248, 22, 22);
+    transition: 0.5s;
+    box-shadow: inset 0px 0px 2px rgb(37, 37, 37);
+}
+/*****/
+
+.container-fluid:has(#white:checked){
+    filter: grayscale(100%);
+}
 /** GameBoy **/
 .gameboy{
     max-width: 500px;
@@ -7,6 +57,8 @@
     height: 100%;
     width: 100%;
     border-radius: 15px;
+    border: 3px solid black;
+    box-shadow: 10px 10px 10px;
     background-color: aqua;
     display: grid;
     justify-items: center;
@@ -50,30 +102,65 @@
     "btn1 .     btn2  .    btn6"
     ".    btn4  .     btn5 ."
     ;
+    align-items: center;
+    justify-items: center;
 }
 [class^="btn"]{
     width: 80%;
     height: 80%;
+    border: 3px solid black;
+    font-size: 40px;
+    transition: all 2s;
 }
 .btn1{
     grid-area: btn1;
+    background: linear-gradient(180deg, #07E097 0%, #306485 100%);
+}
+.btn1:hover{
+    transform: scale(1.1);
+    box-shadow: 10px 10px 10px;
 }
 .btn2{
     grid-area: btn2;
+    background: linear-gradient(180deg, #07E097 0%, #306485 100%);
+}
+.btn2:hover{
+    animation: btn2Flip 2s linear ;
+}
+@keyframes btn2Flip {
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(90deg);
+    }
+    50%{
+        transform: rotate(180deg);
+    }
+    75%{
+        transform: rotate(270deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
 }
 .btn3{
     grid-area: btn3;
+    background: linear-gradient(180deg, #306485 0%,#07E097 100%);
 }
 .btn4{
     grid-area: btn4;
+    background: linear-gradient(180deg, #306485 0%,#07E097 100%);
 }
 .btn5{
     grid-area: btn5;
     border-radius: 200%;
+    background: linear-gradient(180deg, #F5A500 0%, #F50F00 100%);
 }
 .btn6{
     grid-area: btn6;
     border-radius: 200%;
+    background: linear-gradient(180deg, #F50F00 0%,#F5A500 100%);
 }
 /** INICIO **/
 .gameStart{
